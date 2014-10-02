@@ -1,0 +1,197 @@
+html, body {
+    height: 100%;
+}
+body {
+    background-color: #4f4f50;
+    font-family: 'Ubuntu', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Ubuntu', sans-serif;
+}
+.content {
+    min-height: 400px;
+    background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 36px;
+}
+
+.navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 11pt;
+    font-weight: normal;
+}
+.navbar-default {
+    background-color: #4f4f50;
+    font-family: 'Ubuntu', sans-serif;
+}
+.nav-tabs {
+    margin-top: 20px;
+}
+input, .form-control {
+    min-width: 36px;
+}
+.btn {
+    padding:12px 18px;
+    font-size: 12pt;
+    line-height: 1;
+    border-radius: 3px;
+    margin-bottom: 18px;
+}
+img {
+    /* make responsive */
+    max-width: 100%;
+}
+
+.list-default ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-default li {
+    /*font: Helvetica, Verdana, sans-serif;*/
+    line-height: 24px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-default li:last-child {
+    border: none;
+}
+
+.list-default li a {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    padding: 4px 8px;
+
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+.list-default li a:hover {
+    background-color: #eee;
+    color: #999;
+}
+
+.encrypted:disabled {
+    background-color: #adadad;
+    border: 1px solid #909090;
+}
+
+.footer-upper {
+    /*margin-top: 24px;*/
+    background-color: #e7e7e7;
+    height: 76px;
+}
+.footer-lower {
+    padding: 36px 18px;
+    min-height: 120px;
+}
+.footer-lower nav {
+  padding: 0 14px;
+}
+
+.footer-lower nav ul,
+.footer-lower nav ul li {
+  color: rgba(255, 255, 255, 0.4);
+  text-shadow: 1px 1px 0px rgba(42, 42, 42, 1);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.footer-lower nav ul {
+    margin-bottom: 16px;
+}
+
+/*.footer-lower nav > ul > li {
+  display: block;
+  float: left;
+  padding-right: 20px;
+  width: 180px;
+}
+*/
+.footer-lower nav > ul > li > span,
+.footer-lower nav > ul > li > a,
+.footer-lower nav > ul > li > a:link,
+.footer-lower nav > ul > li > a:active,
+.footer-lower nav > ul > li > a:visited {
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.footer-lower nav > ul > li > a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-lower .legal {
+  color: rgba(255, 255, 255, 0.6);
+  float: right;
+  padding: 72px 0 0 0;
+  width: 220px;
+}
+
+.footer-lower .legal > a {
+  text-transform: none !important;
+}
+
+.footer-lower a,
+.footer-lower a:link,
+.footer-lower a:active,
+.footer-lower a:visited {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.footer-lower a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/** Responsive Section **/
+@media (min-width: 768px) and (max-width: 979px) {
+    /* Remove any padding from the body */
+    body {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Remove any padding from the body */
+    body {
+        padding-top: 0;
+    }
+    .content {
+      padding: 10px 15px;
+    }
+    /* Widen masthead and social buttons to fill body padding */
+    .jumbotron {
+        padding: 40px 20px;
+        margin-top:   -20px; /* Offset bottom margin on .navbar */
+        margin-right: -20px;
+        margin-left:  -20px;
+    }
+    .content {
+        min-height: 300px;
+    }
+
+    .ui-pnotify {
+        top: 36px;
+        right:8px;
+    }
+    /** Datatable Changes **/
+    .dataTables_wrapper .rightcolumn {
+        float:left;
+    }
+}
+
+

@@ -1,0 +1,5 @@
+.DS_Store
+.meteor/*
+!.meteor/packages
+mup.json
+
