@@ -3,7 +3,7 @@ Meteor.autorun(function() {
   // Whenever this session variable changes, run this function.
   var opts = Session.get('displayMessage');
 
-  message = _.extend({
+  var defaults = {
     title: 'Message',
     text: '',
     type: 'success',
@@ -17,7 +17,9 @@ Meteor.autorun(function() {
     nonblock: {
       nonblock: true
     }
-  }, opts);
+  };
+
+  var message = _.extend(defaults, opts);
 
   // only show message if opts has a value
   if (!_.isEmpty(opts)) {
