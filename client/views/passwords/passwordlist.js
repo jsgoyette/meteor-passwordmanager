@@ -1,7 +1,11 @@
 Template.passwordlist.helpers({
-    // passwordlist: function() {
-    //     return Passwords.find({}, {sort: {nickname: 1}}).fetch();
-    // }
+    passwordlist: function() {
+        return Passwords.find(getFilter(), {sort: {nickname: 1}});
+    },
+
+    filter: function() {
+        return getFilter();
+    },
 
 });
 
@@ -14,14 +18,6 @@ var getFilter = function() {
       $regex: Session.get('filter')
     }
   }
-};
-
-Template.passwordlist.filter = function() {
-  return getFilter();
-};
-
-Template.passwordlist.passwordlist = function () {
-  return Passwords.find(getFilter(), {sort: {nickname: 1}});
 };
 
 Template.passwordlist.rendered = function () {
