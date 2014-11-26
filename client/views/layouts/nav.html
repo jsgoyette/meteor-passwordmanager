@@ -13,7 +13,9 @@
     <div class="collapse navbar-collapse">
       {{#if currentUser}}
       <ul class="nav navbar-nav">
-        <li class=""><a href="/">ind.li</a></li>
+        <li class="navbar-brand">ind.li</li>
+        <li class=""><a href="/">passwords</a></li>
+        <li class=""><a href="/notes">notas</a></li>
         {{#each modules}}
         <li class=""><a href="/{{path}}">{{label}}</a></li>
         {{/each}}
@@ -31,7 +33,7 @@
       </ul>
       {{else}}
       <ul class="nav navbar-nav">
-        <li class=""><a href="/">ind.li</a></li>
+        <li class="navbar-brand">ind.li</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=""><a href="/login">Login</a></li>

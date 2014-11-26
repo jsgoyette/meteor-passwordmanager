@@ -23,3 +23,21 @@
   {{> footer}}
 
 </template>
+
+<template name="layout-nocontainer">
+
+  {{> nav}}
+
+  <div class="content">
+    <div class="nocontainer">
+      <div class="row">
+
+    {{> yield}}
+
+      </div>
+    </div>
+  </div>
+
+  {{> footer}}
+
+</template>

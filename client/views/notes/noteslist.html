@@ -1,0 +1,36 @@
+<template name="noteslist">
+<div class="row">
+  <div class="col-sm-12 controls">
+  </div>
+  <div class="col-sm-6 tag-list">
+    <div class="input-group">
+      <div id="search-clear" class="input-group-addon">
+        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+      </div>
+      <input type="text" class="form-control" id="search" placeholder="search" autocomplete="off" autocapitalize="off">
+    </div>
+    <div class="panel">
+      <!-- Default panel contents -->
+      <div class="list-group">
+        <a class="list-group-item tags-all">All</a>
+        {{#each tags}}
+        <a class="list-group-item" data-tag="{{name}}"><span class="badge">{{count}}</span>{{name}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 note-list">
+    <div class="panel">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <a href="/notes"><span class="glyphicon glyphicon-plus addnote" aria-hidden="true"></span></a>
+      </div>
+      <div class="list-group">
+        {{#each notes}}
+        <a href="/notes/{{_id}}" class="list-group-item">{{title}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+</template>

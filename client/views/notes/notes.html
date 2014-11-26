@@ -1,0 +1,18 @@
+<template name="notes">
+
+<div class="col-sm-4 sidebar">
+  {{> noteslist}}
+</div>
+
+<div class="col-sm-8 main">
+  {{> note}}
+</div>
+
+</template>
+
+<template name="note">
+  <input class="text-center form-control note-title" value="{{title}}">
+  <input type="text" class="form-control note-tags" value="{{#each tags}}{{this}} {{/each}}" placeholder="tags">
+  <div id="editor" class="note-content" contentEditable="true">{{text}}</div>
+</template>
+
