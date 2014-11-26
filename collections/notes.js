@@ -13,13 +13,3 @@ Notes.allow({
   }
 
 });
-
-// if (Meteor.isServer) {
-//   Messages.after.update(function (userId, doc, fieldNames, modifier, options) {
-//     console.log(userId);
-//     console.log(doc);
-//     console.log(fieldNames);
-//     console.log(modifier);
-//     console.log(options);
-//   });
-// }
