@@ -1,13 +1,11 @@
-html, body {
-    height: 100%;
+.btn {
+  margin-bottom: 20px;
 }
-body {
-    background-color: #4f4f50;
-    font-family: 'Ubuntu', sans-serif;
+
+.note-title, .note-title:focus {
+    box-shadow: none;
 }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Ubuntu', sans-serif;
-}
+
 .content {
     min-height: 400px;
     background-color: #ffffff;
@@ -15,29 +13,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-bottom: 36px;
 }
 
-.navbar {
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 11pt;
-    font-weight: normal;
+.nocontainer > .row {
+  margin-left: 5px;
+  margin-right: 5px;
 }
-.navbar-default {
-    background-color: #4f4f50;
-    font-family: 'Ubuntu', sans-serif;
+
+.sidebar > .row > div {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 3px;
 }
-.nav-tabs {
-    margin-top: 20px;
+
+.note-content {
+  font-size: 10pt;
 }
+
 input, .form-control {
     min-width: 36px;
 }
-.btn {
-    padding:12px 18px;
-    font-size: 12pt;
-    line-height: 1;
-    border-radius: 3px;
-    margin-bottom: 18px;
-}
+
 img {
     /* make responsive */
     max-width: 100%;
@@ -88,6 +82,33 @@ img {
     border: 1px solid #909090;
 }
 
+
+.note-title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 36px;
+  border: none;
+  outline: none;
+}
+
+.note-content {
+  width: 100%;
+  min-height: 250px;
+  margin: 18px;
+  border: none;
+  border-style: none;
+  border-color: transparent;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-family: Monaco, monospace;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+}
+
+
 .footer-upper {
     /*margin-top: 24px;*/
     background-color: #e7e7e7;
@@ -113,13 +134,6 @@ img {
     margin-bottom: 16px;
 }
 
-/*.footer-lower nav > ul > li {
-  display: block;
-  float: left;
-  padding-right: 20px;
-  width: 180px;
-}
-*/
 .footer-lower nav > ul > li > span,
 .footer-lower nav > ul > li > a,
 .footer-lower nav > ul > li > a:link,
@@ -172,6 +186,7 @@ img {
     }
     .content {
       padding: 10px 15px;
+      min-height: 300px;
     }
     /* Widen masthead and social buttons to fill body padding */
     .jumbotron {
@@ -179,9 +194,6 @@ img {
         margin-top:   -20px; /* Offset bottom margin on .navbar */
         margin-right: -20px;
         margin-left:  -20px;
-    }
-    .content {
-        min-height: 300px;
     }
 
     .ui-pnotify {
