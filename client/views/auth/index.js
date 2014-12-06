@@ -16,7 +16,6 @@ var isValidPassword = function(val) {
 
 Template.login.events({
   'keyup #login-password': function(e, t) {
-    // console.log($('#login-password').val());
     return false;
   },
   'submit #login-form' : function(e, t) {
@@ -26,21 +25,18 @@ Template.login.events({
     var email = t.find('#login-email').value,
       password = t.find('#login-password').value;
 
-    // TODO: Trim and validate fields here....
+    email = trimInput(email);
 
-    // If validation passes, supply the appropriate fields to the
-    // Meteor.loginWithPassword() function.
     Meteor.loginWithPassword(email, password, function(err) {
-      // console.log(err);
       if (err) {
-        // Inform user that login attempt failed.
+        // inform user that login attempt failed
         Session.set('displayMessage', {
           title: 'Login error',
           text: err.reason || 'Unknown error.',
           type: 'error'
         });
       } else {
-        // The user has been logged in.
+        // the user has been logged in
         Session.set('displayMessage', {});
         Router.go('/');
       }
@@ -62,21 +58,25 @@ Template.register.events({
     var email = trimInput(email);
     if (!isValidPassword(password)) return false;
 
-    Meteor.call('createUser', {email: email, username : username, password : password}, function(err) {
+    Meteor.call('createUser', {
+      email: email,
+      username : username,
+      password : password
+    }, function(err) {
       if (!err) {
-        Meteor.call('sendVerification');
-        // Success, account created...clear messages and redirect
+        // success, account created...clear messages and redirect
         Session.set('displayMessage', {
-          title: 'Welcome!',
-          text: "Account created. Verification email sent.\n\nPlease check your email to complete email address verification process.",
+          title: 'Almost done...',
+          text: "Account created. Verification email sent.\n\nPlease check your"
+            + 'email to complete email address verification process.',
           type: 'success'
         });
         Router.go('/');
       } else {
-        // Inform the user that account creation failed
+        // inform the user that account creation failed
         console.log(err);
         Session.set('displayMessage', {
-          title: 'Error creating account',
+          title: 'Error',
           text: err.reason,
           type: 'error'
         });
@@ -95,19 +95,18 @@ Template.passwordRecovery.events({
     var email = trimInput(t.find('#recovery-email').value);
 
     if (email) {
-    // if (email && isEmail(email)) {
       Session.set('loading', true);
       Accounts.forgotPassword({email: email}, function (err) {
         if (err)
           Session.set('displayMessage', {
             title: 'Error',
-            text: 'Password reset error',
+            text: 'Could not send reset email',
             type: 'error'
           });
         else {
           Session.set('displayMessage', {
-            title: 'Email Sent.',
-            text: 'Please check your email.'
+            title: 'Email Sent',
+            text: 'Please check your email'
           });
         }
         Session.set('loading', false);
@@ -128,13 +127,13 @@ Template.passwordRecoveryComplete.events({
         if (err)
           Session.set('displayMessage', {
             title: 'Error',
-            text: 'Password reset error',
+            text: 'Password could not be reset',
             type: 'error'
           });
         else {
           Session.set('displayMessage', {
             title: 'Success',
-            text: 'Password successfully reset'
+            text: 'Password successfully reset!'
           });
         }
         Session.set('loading', false);

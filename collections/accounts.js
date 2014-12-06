@@ -10,14 +10,29 @@ if (Meteor.isServer) {
     return "Click this link to verify your email:\n\n" + url;
   }
 
+  Accounts.emailTemplates.from = 'ind.li <no-reply@ind.li>';
+  Accounts.emailTemplates.siteName = 'ind.li';
+
+  // on create user send verification email
+  Accounts.onCreateUser(function(options, user) {
+
+    // we wait for Meteor to create the user before sending an email
+    Meteor.setTimeout(function() {
+      Accounts.sendVerificationEmail(user._id);
+    }, 2 * 1000);
+
+    return user;
+  });
+
 }
+
 
 Meteor.startup(function() {
 
-  // only allow accounts with a verified email address to log in
   if (Meteor.isServer) {
-    var loginAttemptVerifier = function(data) {
-      // console.log(data);
+
+    // only allow accounts with a verified email address to log in
+    Accounts.validateLoginAttempt(function(data) {
 
       // if not logging in, pass on through (needed for createUser not to fail)
       if (data.methodName != 'login') {
@@ -26,23 +41,22 @@ Meteor.startup(function() {
       else if (data.user && data.user.emails && (data.user.emails.length > 0)) {
 
         // return true if verified email, false otherwise
-        var found = _.find(
+        var hasVerifiedEmail = _.find(
           data.user.emails,
-          function(thisEmail) { return thisEmail.verified }
+          function(email) { return email.verified }
         );
 
-        if (!found) {
+        if (!hasVerifiedEmail) {
           throw new Meteor.Error(500, 'Account not verified. Check your email!');
         }
 
-        return found && data.allowed;
+        console.log('loginAttemptVerifier');
+        return hasVerifiedEmail && data.allowed;
 
       } else {
-        console.log("user has no registered emails.");
+        console.log('Login failed: no user with verified email found');
         return false;
       }
-    }
-
-    Accounts.validateLoginAttempt(loginAttemptVerifier);
+    });
   }
 });
