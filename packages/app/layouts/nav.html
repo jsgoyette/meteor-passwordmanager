@@ -1,0 +1,47 @@
+<template name="nav">
+
+<div class="navbar navbar-default" role="navigation"> <!-- Start navbar -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      {{#if currentUser}}
+      <ul class="nav navbar-nav">
+        <li class="navbar-brand">ind.li</li>
+        <li class=""><a href="/passwords">passwords</a></li>
+        <li class=""><a href="/notes">notas</a></li>
+        {{#each modules}}
+        <li class=""><a href="/{{path}}">{{label}}</a></li>
+        {{/each}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li class=""><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ currentUser.username }} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/profile">Account Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{else}}
+      <ul class="nav navbar-nav">
+        <li class="navbar-brand">ind.li</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="/login">Login</a></li>
+        <li class=""><a href="/register">Register</a></li>
+      </ul>
+      {{/if}}
+    </div><!--/.nav-collapse -->
+  </div>
+</div> <!-- End nav -->
+
+</template>
