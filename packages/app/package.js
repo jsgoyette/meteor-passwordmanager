@@ -12,6 +12,7 @@ Package.onUse(function (api) {
   api.use('underscore', both);
   api.use('iron:router', both);
   api.use('templating', 'client');
+  api.use('spin', 'client');
 
   api.addFiles('layouts/default.html', 'client');
   api.addFiles('layouts/footer.html', 'client');

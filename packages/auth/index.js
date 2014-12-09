@@ -7,7 +7,7 @@ var isValidPassword = function(val) {
     return true;
   } else {
     Mediator.publish('notification', {
-      text: 'Password too short.',
+      text: 'Password too short',
       type: 'error'
     });
     return false;
@@ -31,7 +31,7 @@ Template.login.events({
       if (err) {
         // inform user that login attempt failed
         Mediator.publish('notification', {
-          text: err.reason || 'Unknown error.',
+          text: err.reason || 'Unknown error',
           type: 'error'
         });
       }
@@ -63,7 +63,6 @@ Template.register.events({
         Mediator.publish('notification', {
           text: "Account created. Verification email sent.\n\nPlease check your"
             + 'email to complete email address verification process.',
-          type: 'success'
         });
         Router.go('/');
       } else {
