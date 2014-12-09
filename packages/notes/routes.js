@@ -33,8 +33,7 @@ var routes = [
 ];
 
 Router.map(function() {
-  _this = this;
   _.each(routes, function(r) {
-    _this.route(r.name, r.opts);
-  });
+    this.route(r.name, r.opts);
+  }, this);
 });
