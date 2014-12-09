@@ -1,19 +1,28 @@
+var stack_topright = {
+  'dir1': 'down',
+  'dir2': 'left',
+  'push': 'top',
+  'spacing1': 10
+};
+
 Notify.setMessage = function(opts) {
 
   var defaults = {
-    title: 'Message',
+    title: '',
     text: '',
     type: 'success',
     icon: 'glyphicon glyphicon-exclamation-sign',
     // icon: 'picon picon-mail-unread-new',
-    addclass: 'custom',
-    opacity: .92,
+    addclass: 'common',
+    opacity: '.86',
     width: '260px',
     delay: 4000,
     animate_speed: 500,
+    shadow: false,
     nonblock: {
       nonblock: true
-    }
+    },
+    stack: stack_topright
   };
 
   var message = _.extend(defaults, opts);

@@ -75,14 +75,12 @@ Template.password.events({
     Passwords.update({ _id: this._id }, { $set: fieldValues }, function (err, affected) {
       if (err) {
         Mediator.publish('notification', {
-          title: 'Save Error',
           text: err,
           type: 'error',
           icon: 'glyphicon glyphicon-info-sign'
         });
       } else {
         Mediator.publish('notification', {
-          title: 'Password Saved',
           text: _this.nickname + ' was successfully saved!',
           type: 'success',
           icon: 'glyphicon glyphicon-ok-sign'
@@ -96,7 +94,6 @@ Template.password.events({
     if (confirm('Do you really want to delete this password?')) {
       Passwords.update({ _id: this._id }, { $set: {deleted: true} }, function (err, affected) {
         Mediator.publish('notification', {
-          title: 'Password Deleted',
           text: nickname + ' was successfully deleted.',
           type: 'error',
           icon: 'glyphicon glyphicon-trash'

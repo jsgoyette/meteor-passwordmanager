@@ -7,7 +7,7 @@ var isValidPassword = function(val) {
     return true;
   } else {
     Mediator.publish('notification', {
-      title: 'Password too short.',
+      text: 'Password too short.',
       type: 'error'
     });
     return false;
@@ -31,7 +31,6 @@ Template.login.events({
       if (err) {
         // inform user that login attempt failed
         Mediator.publish('notification', {
-          title: 'Login error',
           text: err.reason || 'Unknown error.',
           type: 'error'
         });
@@ -62,7 +61,6 @@ Template.register.events({
       if (!err) {
         // success, account created...clear messages and redirect
         Mediator.publish('notification', {
-          title: 'Almost done...',
           text: "Account created. Verification email sent.\n\nPlease check your"
             + 'email to complete email address verification process.',
           type: 'success'
@@ -70,9 +68,8 @@ Template.register.events({
         Router.go('/');
       } else {
         // inform the user that account creation failed
-        console.log(err);
+        // console.log(err);
         Mediator.publish('notification', {
-          title: 'Error',
           text: err.reason,
           type: 'error'
         });
@@ -95,13 +92,11 @@ Template.passwordRecovery.events({
       Accounts.forgotPassword({email: email}, function (err) {
         if (err)
           Mediator.publish('notification', {
-            title: 'Error',
             text: 'Could not send reset email',
             type: 'error'
           });
         else {
           Mediator.publish('notification', {
-            title: 'Email Sent',
             text: 'Please check your email'
           });
         }
@@ -122,13 +117,11 @@ Template.passwordRecoveryComplete.events({
       Accounts.resetPassword(this.token, pw, function(err) {
         if (err)
           Mediator.publish('notification', {
-            title: 'Error',
             text: 'Password could not be reset',
             type: 'error'
           });
         else {
           Mediator.publish('notification', {
-            title: 'Success',
             text: 'Password successfully reset!'
           });
         }

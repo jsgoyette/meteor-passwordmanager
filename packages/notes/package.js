@@ -12,6 +12,7 @@ Package.onUse(function (api) {
   api.use('underscore', both);
   api.use('iron:router', both);
   api.use('templating', 'client');
+  api.use('mediator', both);
 
   api.addFiles('routes.js', both);
   api.addFiles('collections.js', both);

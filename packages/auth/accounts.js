@@ -46,8 +46,7 @@ Meteor.startup(function() {
       return hasVerifiedEmail && data.allowed;
 
     } else {
-      // console.log('Login failed: no user with verified email found');
-      throw new Meteor.Error(500, 'No user with verified email found...');
+      throw new Meteor.Error(500, 'No user found');
       return false;
     }
   });

@@ -75,14 +75,12 @@ Template.passwordnew.events({
     Passwords.insert(fieldValues, function (err, id) {
       if (err) {
         Mediator.publish('notification', {
-          title: 'Save Error',
           text: err,
           type: 'error',
           icon: 'glyphicon glyphicon-info-sign'
         });
       } else {
         Mediator.publish('notification', {
-          title: 'Password Saved',
           text: fieldValues.nickname + ' was successfully saved!',
           type: 'success',
           icon: 'glyphicon glyphicon-plus'
@@ -108,7 +106,6 @@ Template.passwordnew.events({
       + genpass(16) + "\n" + genpass(16);
 
     Mediator.publish('notification', {
-      title: 'Passwords',
       text: message,
       icon: ''
     });
