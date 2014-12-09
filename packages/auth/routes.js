@@ -1,57 +1,50 @@
-var routes = [
-  {
-    'name': 'login',
-    'opts': {
-      path: '/login',
-    }
-  }, {
-    'name': 'register',
-    'opts': {
-      path: '/register',
-    }
-  }, {
-    'name': 'passwordRecovery',
-    'opts': {
-      path: '/reset',
-    }
-  }, {
-    'name': 'passwordRecoveryComplete',
-    'opts': {
-      path: '/reset-password/:token',
-      data: function () {
-        return {
-          token: this.params.token
-        }
+var routes = {
+
+  'login': {
+    path: '/login',
+  },
+
+  'register': {
+    path: '/register',
+  },
+
+  'passwordRecovery': {
+    path: '/reset',
+  },
+
+  'passwordRecoveryComplete': {
+    path: '/reset-password/:token',
+    data: function () {
+      return {
+        token: this.params.token
       }
     }
-  }, {
-    'name': 'verifyEmail',
-    'opts': {
-      path: '/verify-email/:token',
-      action: function () {
-        Meteor.call('verifyEmail', this.params.token, function(err) {
-          console.log(err);
-        });
-        Session.set('displayMessage', {
-          title: 'Email Verified.',
-          text: 'Your account is now ready to go!'
-        });
-        Router.go('/');
-      }
+  },
+
+  'verifyEmail': {
+    path: '/verify-email/:token',
+    action: function () {
+      Meteor.call('verifyEmail', this.params.token, function(err) {
+        console.log(err);
+      });
+      Session.set('displayMessage', {
+        title: 'Email Verified.',
+        text: 'Your account is now ready to go!'
+      });
+      Router.go('/');
     }
-  }, {
-    'name': 'logout',
-    'opts': {
-      action: function () {
-        Meteor.logout();
-      }
+  },
+
+  'logout': {
+    action: function () {
+      Meteor.logout();
     }
   }
-];
+};
 
 Router.map(function() {
-  _.each(routes, function(r) {
-    this.route(r.name, r.opts);
+  _.each(routes, function(opts, name) {
+    this.route(name, opts);
   }, this);
 });
 
