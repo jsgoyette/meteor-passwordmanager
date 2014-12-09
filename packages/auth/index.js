@@ -35,9 +35,6 @@ Template.login.events({
           text: err.reason || 'Unknown error.',
           type: 'error'
         });
-      } else {
-        // the user has been logged in
-        Router.go('/');
       }
     });
 

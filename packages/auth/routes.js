@@ -50,16 +50,15 @@ var routes = [
 ];
 
 Router.map(function() {
-  _this = this;
   _.each(routes, function(r) {
-    _this.route(r.name, r.opts);
-  });
+    this.route(r.name, r.opts);
+  }, this);
 });
 
 var BeforeHooks = {
   isLoggedIn: function() {
     if (!(Meteor.loggingIn() || Meteor.user())) {
-      Router.go('/login');
+      this.render('login');
     } else {
       this.next();
     }
