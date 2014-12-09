@@ -7,7 +7,8 @@ Package.describe({
 Package.onUse(function (api) {
 
   api.addFiles('pnotify.custom.css', 'client');
-  api.addFiles('pnotify.custom.min.js', 'client');
+  api.addFiles('pnotify.user.css', 'client');
+  api.addFiles('pnotify.custom.js', 'client');
 
   api.export('PNotify', 'client');
 });

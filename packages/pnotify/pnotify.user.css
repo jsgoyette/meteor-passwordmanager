@@ -1,0 +1,13 @@
+.ui-pnotify {
+    top: 65px;
+    right: 5px;
+}
+
+.ui-pnotify.common .alert {
+    /*background-color: #ddd;*/
+}
+
+.ui-pnotify .alert {
+    margin: 2px;
+    border-radius: 4px;
+}
