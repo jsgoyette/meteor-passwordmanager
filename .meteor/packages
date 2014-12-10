@@ -11,7 +11,6 @@ accounts-password
 iron:router
 less
 nemo64:bootstrap
-app
 jsgoyette:auth
 jsgoyette:aes
 mediator
@@ -20,4 +19,6 @@ jsgoyette:pnotify
 jsgoyette:notes
 jsgoyette:passwords
 spin
+layouts
+app
 

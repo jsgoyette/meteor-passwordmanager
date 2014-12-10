@@ -13,8 +13,11 @@ Package.onUse(function (api) {
   api.use('iron:router', both);
   api.use('templating', 'client');
   api.use('spin', 'client');
+  api.use('layouts', 'client');
 
   api.addFiles('layouts/default.html', 'client');
+  api.addFiles('layouts/default.js', 'client');
+
   api.addFiles('layouts/footer.html', 'client');
   api.addFiles('layouts/nav.html', 'client');
 
