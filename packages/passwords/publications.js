@@ -4,5 +4,7 @@ Meteor.publish('passwords', function(query, options) {
   query.userid = this.userId;
   query.deleted = false;
 
-  return Passwords.find(query, options);
+  return [
+    Passwords.find(query, options)
+  ];
 });

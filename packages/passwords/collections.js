@@ -1,10 +1,11 @@
 Passwords = new Meteor.Collection('passwords');
 
+Passwords.attachSchema(new SimpleSchema(CollectionSchema));
+
 Passwords.allow({
 
   'update': function (userId, doc) {
-    /* user and doc checks ,
-    return true to allow insert */
+    // return true to allow insert
     return userId == doc.userid;
   },
 
