@@ -25,11 +25,14 @@ var routes = {
     path: '/verify-email/:token',
     action: function () {
       Meteor.call('verifyEmail', this.params.token, function(err) {
-        console.log(err);
-      });
-      Session.set('displayMessage', {
-        title: 'Email Verified.',
-        text: 'Your account is now ready to go!'
+        if (!err) {
+          Mediator.publish('notification', {
+            title: 'Email Verified.',
+            text: 'Your account is now ready to go!'
+          });
+        } else {
+          console.log(err);
+        }
       });
       Router.go('/');
     }
