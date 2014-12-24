@@ -2,7 +2,11 @@ Template.spinner.rendered = function() {
   var options = _.extend({}, defaultSpinner.options, this.data);
 
   this.spinner = new Spinner(options);
-  this.spinner.spin(this.firstNode);
+  var _this = this;
+
+  Meteor.setTimeout(function() {
+    _this.spinner.spin(_this.firstNode);
+  }, options.delay || 0);
 };
 
 Template.spinner.destroyed = function() {
