@@ -14,7 +14,8 @@ Template.spinnerLarge.helpers({
       radius: 16,
       color: '#bbb',
       top: '25%',
-      left: '50%'
+      left: '50%',
+      delay: 200
     }, this);
   },
 });
