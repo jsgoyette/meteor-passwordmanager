@@ -68,10 +68,18 @@ var BeforeHooks = {
   },
 }
 
+var unprotectedRoutes = [
+  'login',
+  'register',
+  'verifyEmail',
+  'passwordRecovery',
+  'passwordRecoveryComplete'
+];
+
 Router.onBeforeAction(BeforeHooks.isLoggedIn, {
-  except: ['login', 'register', 'passwordRecovery', 'passwordRecoveryComplete', 'verifyEmail']
+  except: unprotectedRoutes
 });
 
 Router.onBeforeAction(BeforeHooks.alreadyLoggedIn, {
-  only: ['login', 'register', 'passwordRecovery', 'passwordRecoveryComplete', 'verifyEmail']
+  only: unprotectedRoutes
 });
