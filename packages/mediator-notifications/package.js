@@ -8,9 +8,9 @@ Package.onUse(function (api) {
 
   var both = ['client', 'server'];
 
-  api.use('jsgoyette:pnotify', 'client');
-  api.use('mediator', 'client');
   api.use('underscore', 'client');
+  api.use('mediator', 'client');
+  api.use('jsgoyette:pnotify', 'client');
 
   api.addFiles('common.js', both);
   api.addFiles('server.js', 'server');

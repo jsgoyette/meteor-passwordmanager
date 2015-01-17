@@ -1,3 +1,3 @@
 Notify.setMessage = function(message) {
-  return console.log('SERVER MESSAGE: ', message);
+  return console.log('SERVER MESSAGE:', message);
 };

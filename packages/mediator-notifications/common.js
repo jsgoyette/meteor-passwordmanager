@@ -7,6 +7,6 @@ Meteor.startup(function() {
   });
 });
 
-this.Notify = {
+Notify = {
   setMessage: function(message) {}
 };
