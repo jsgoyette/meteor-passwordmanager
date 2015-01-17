@@ -3,14 +3,14 @@
 }
 
 .note-title, .note-title:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .content {
-    min-height: 400px;
-    background-color: #ffffff;
-    padding-top: 20px;
-    padding-bottom: 36px;
+  min-height: 500px;
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 36px;
 }
 
 .nocontainer > .row {
@@ -29,61 +29,68 @@
 }
 
 .list-pager {
-  margin: 8px 0;
+  margin: 4px 0;
 }
 
 input, .form-control {
-    min-width: 36px;
+  min-width: 36px;
 }
 
 img {
-    /* make responsive */
-    max-width: 100%;
+  /* make responsive */
+  max-width: 100%;
 }
 
-.list-default ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.list-default {
+  width: 100%;
+  margin-top: 15px;
 }
 
 .list-default li {
-    /*font: Helvetica, Verdana, sans-serif;*/
-    line-height: 24px;
-    border-bottom: 1px solid #ddd;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /*font: Helvetica, Verdana, sans-serif;*/
+  line-height: 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-default th {
+  /*background: #eee;*/
+  cursor: pointer;
 }
 
 .list-default li:last-child {
-    border: none;
+  border: none;
 }
 
 .list-default li a {
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
-    padding: 4px 8px;
+  /*text-decoration: none;*/
+  display: block;
+  cursor: pointer;
+  padding: 4px 8px;
 
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
-    -ms-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 
-    -webkit-transition: color 0.3s ease;
-    -moz-transition: color 0.3s ease;
-    -o-transition: color 0.3s ease;
-    -ms-transition: color 0.3s ease;
-    transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .list-default li a:hover {
-    background-color: #eee;
-    color: #999;
+  /*background-color: #eee;*/
+  color: #999;
 }
 
 .encrypted:disabled {
-    background-color: #adadad;
-    border: 1px solid #909090;
+  background-color: #adadad;
+  border: 1px solid #909090;
 }
 
 
@@ -114,13 +121,13 @@ img {
 
 
 .footer-upper {
-    /*margin-top: 24px;*/
-    background-color: #e7e7e7;
-    height: 76px;
+  /*margin-top: 24px;*/
+  background-color: #e7e7e7;
+  height: 76px;
 }
 .footer-lower {
-    padding: 36px 18px;
-    min-height: 120px;
+  padding: 36px 18px;
+  min-height: 120px;
 }
 .footer-lower nav {
   padding: 0 14px;
@@ -177,37 +184,37 @@ img {
 
 /** Responsive Section **/
 @media (min-width: 768px) and (max-width: 979px) {
-    /* Remove any padding from the body */
-    body {
-        padding-top: 0;
-    }
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 767px) {
-    /* Remove any padding from the body */
-    body {
-        padding-top: 0;
-    }
-    .content {
-      padding: 10px 15px;
-      min-height: 300px;
-    }
-    /* Widen masthead and social buttons to fill body padding */
-    .jumbotron {
-        padding: 40px 20px;
-        margin-top:   -20px; /* Offset bottom margin on .navbar */
-        margin-right: -20px;
-        margin-left:  -20px;
-    }
+  /* Remove any padding from the body */
+  body {
+      padding-top: 0;
+  }
+  .content {
+    padding: 10px 15px;
+    min-height: 300px;
+  }
+  /* Widen masthead and social buttons to fill body padding */
+  .jumbotron {
+    padding: 40px 20px;
+    margin-top:   -20px; /* Offset bottom margin on .navbar */
+    margin-right: -20px;
+    margin-left:  -20px;
+  }
 
-    .ui-pnotify {
-        top: 36px;
-        right:8px;
-    }
-    /** Datatable Changes **/
-    .dataTables_wrapper .rightcolumn {
-        float:left;
-    }
+  .ui-pnotify {
+    top: 36px;
+    right:8px;
+  }
+  /** Datatable Changes **/
+  .dataTables_wrapper .rightcolumn {
+    float:left;
+  }
 }
 
 
