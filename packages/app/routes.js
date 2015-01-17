@@ -3,6 +3,6 @@ Router.configure({
   loadingTemplate: 'loading'
 });
 
-Router.route('/', function () {
+Router.route('/', function() {
   this.redirect('passwordlist');
 });
