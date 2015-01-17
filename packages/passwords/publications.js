@@ -1,10 +1,22 @@
-Meteor.publish('passwords', function(query, options) {
-
+var makeQuery = function(query, userid) {
   query = query || {};
-  query.userid = this.userId;
-  query.deleted = false;
+  return {
+    $and: [
+      { deleted: false },
+      { userid: userid },
+      query
+    ]
+  };
+};
 
-  return [
-    Passwords.find(query, options)
-  ];
+Meteor.publish('passwords', function(query, options) {
+  query = makeQuery(query, this.userId);
+  return [Passwords.find(query, options)];
+});
+
+Meteor.methods({
+  'passwordsFilteredTotal': function (query) {
+    query = makeQuery(query, this.userId);
+    return Passwords.find(query).count();
+  }
 });

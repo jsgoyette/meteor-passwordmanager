@@ -2,15 +2,6 @@ var routes = {
 
   'passwordlist': {
     path: '/passwords',
-    waitOn: function () {
-      return [
-        Meteor.subscribe('passwords'),
-      ];
-    }
-  },
-
-  'passwordnew': {
-    path: '/passwords/new',
   },
 
   'password': {

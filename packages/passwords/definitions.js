@@ -35,17 +35,17 @@ CollectionSchema = {
   },
 };
 
-LayoutDefinitions = {
-  list: {
-    nickname: {
-      fieldtype: 'link'
-    }
-  },
-  record: {
-    rows: [
-      {
-
-      }
-    ]
+ListLayout = {
+  fields: [ 'nickname' ],
+  defaultOptions: {
+    sort: { 'nickname': 1 }
   }
-}
+};
+
+RecordLayout: {
+  rows: [
+    {
+
+    }
+  ]
+};
