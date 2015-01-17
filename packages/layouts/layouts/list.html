@@ -1,0 +1,64 @@
+<template name="list">
+
+  <div class="row">
+
+    <div class="col-sm-3 col-sm-push-6">
+      <a href="/{{key}}/new" class="btn btn-primary create-button"><i class="glyphicon glyphicon-plus"></i> Create New</a>
+    </div>
+
+    <div class="col-sm-3 col-sm-push-6">
+      <nav>
+        <ul class="list-pager pager">
+          <li><a class="back" href="#"><span aria-hidden="true">&larr;</span> Back</a></li>
+          <li><a class="more" href="#">More <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </nav>
+      <div class="text-center">Showing {{showingFrom}} - {{showingTo}} of {{filteredTotal}}</div>
+    </div>
+
+    <div class="col-sm-6 col-sm-pull-6">
+      <input type="text" class="form-control" id="filter" placeholder="Filter results" value="{{filter}}" autocapitalize="off" autocorrect="off">
+    </div>
+
+  </div>
+
+  <table id="list-table" class="table table-striped list-default">
+    {{> listHeader this}}
+    {{> listItems this}}
+  </table>
+
+  {{#if moreResults}}
+    <div id="showMoreResults">
+      <span class="loading">Loading...</span>
+    </div>
+  {{/if}}
+
+</template>
+
+
+
+<template name="listHeader">
+  <thead>
+    <tr>
+    {{#each header}}
+      {{>listHeaderItem this}}
+    {{/each}}
+    </tr>
+  </thead>
+</template>
+
+<template name="listHeaderItem">
+  <th>{{label}}<i class="{{sortIcon}}"></i></th>
+</template>
+
+<template name="listItems">
+  <tbody>
+  {{#each collection}}
+    <tr class="list-item">
+    {{#each fields}}
+      <td><a href="/{{../collectionName}}/{{../_id}}">{{value}}</a></td>
+    {{/each}}
+    </tr>
+  {{/each}}
+  </tbody>
+</template>
