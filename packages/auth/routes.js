@@ -40,7 +40,9 @@ var routes = {
 
   'logout': {
     action: function () {
-      Meteor.logout();
+      Meteor.logout(function() {
+        Router.go('/');
+      });
     }
   }
 };
@@ -53,7 +55,7 @@ Router.map(function() {
 
 var BeforeHooks = {
   isLoggedIn: function() {
-    if (!(Meteor.loggingIn() || Meteor.user())) {
+    if (!Meteor.user()) {
       this.render('login');
     } else {
       this.next();
