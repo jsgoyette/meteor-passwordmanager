@@ -7,6 +7,10 @@ var stack_topright = {
 
 Notify.setMessage = function(opts) {
 
+  if (typeof(opts) === 'string') {
+    opts = { text: opts };
+  }
+
   var defaults = {
     title: '',
     text: '',
