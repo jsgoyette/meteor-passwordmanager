@@ -5,6 +5,11 @@
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-aes.git",
       "branch": "master"
     },
+    "auth-simple": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/auth-simple",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-auth-simple.git",
+      "branch": "master"
+    },
     "mediator": {
       "_path": "/Volumes/Data/Project/_meteor/_packages/mediator",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-mediator.git",

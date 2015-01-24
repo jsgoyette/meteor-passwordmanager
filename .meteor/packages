@@ -5,19 +5,19 @@
 
 standard-app-packages
 accounts-base
+accounts-password
 mrt:moment
 email
-accounts-password
 iron:router
 less
 nemo64:bootstrap
-jsgoyette:auth
+aldeed:collection2
+aldeed:autoform
+aldeed:simple-schema
+jsgoyette:auth-simple
 jsgoyette:mediator
 jsgoyette:mediator-notifications
 jsgoyette:notes
 jsgoyette:passwords
 layouts
 app
-aldeed:collection2
-aldeed:autoform
-aldeed:simple-schema
