@@ -12,13 +12,10 @@ iron:router
 less
 nemo64:bootstrap
 jsgoyette:auth
-jsgoyette:aes
-mediator
+jsgoyette:mediator
 jsgoyette:mediator-notifications
-jsgoyette:pnotify
 jsgoyette:notes
 jsgoyette:passwords
-spin
 layouts
 app
 aldeed:collection2

@@ -9,13 +9,13 @@ Package.onUse(function (api) {
   var both = ['client', 'server'];
 
   api.use('tracker', both);
-  api.use('mediator', both);
   api.use('underscore', both);
   api.use('templating', 'client');
   api.use('aldeed:autoform', both);
   api.use('aldeed:collection2', both);
   api.use('aldeed:simple-schema', both);
-  api.use('spin', 'client');
+  api.use('jsgoyette:mediator', both);
+  api.use('jsgoyette:spin', 'client');
 
   api.addFiles('layouts/list.html', 'client');
   api.addFiles('layouts/list.js', 'client');

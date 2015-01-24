@@ -8,12 +8,12 @@ Package.onUse(function (api) {
 
   var both = ['client', 'server'];
 
-  api.use('mediator', both);
   api.use('underscore', both);
   api.use('iron:router', both);
   api.use('aldeed:autoform', both);
   api.use('aldeed:collection2', both);
   api.use('aldeed:simple-schema', both);
+  api.use('jsgoyette:mediator', both);
 
   api.use('templating', 'client');
   api.use('jsgoyette:aes', 'client');

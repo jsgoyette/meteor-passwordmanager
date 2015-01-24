@@ -8,11 +8,11 @@ Package.onUse(function (api) {
 
   var both = ['client', 'server'];
 
-  api.use('mediator', both);
   api.use('underscore', both);
   api.use('iron:router', both);
   api.use('templating', 'client');
-  api.use('spin', 'client');
+  api.use('jsgoyette:mediator', both);
+  api.use('jsgoyette:spin', 'client');
   api.use('layouts', 'client');
 
   api.addFiles('layouts/default.html', 'client');

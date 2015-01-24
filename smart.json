@@ -1,0 +1,29 @@
+{
+  "packages": {
+    "aes": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/aes",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-aes.git",
+      "branch": "master"
+    },
+    "mediator": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/mediator",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-mediator.git",
+      "branch": "master"
+    },
+    "mediator-notifications": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/mediator-notifications",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-mediator-notifications.git",
+      "branch": "master"
+    },
+    "pnotify": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/pnotify",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-pnotify.git",
+      "branch": "master"
+    },
+    "spin": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/spin",
+      "git": "ssh://git@bitbucket.org/jsgoyette/meteor-spin.git",
+      "branch": "master"
+    }
+  }
+}
