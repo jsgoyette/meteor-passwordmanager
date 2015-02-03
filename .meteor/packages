@@ -14,12 +14,12 @@ nemo64:bootstrap
 aldeed:collection2
 aldeed:autoform
 aldeed:simple-schema
-layouts
+pfafman:font-awesome-4
+jsgoyette:layouts
 jsgoyette:auth-simple
 jsgoyette:mediator
 jsgoyette:mediator-notifications
 jsgoyette:notes
 jsgoyette:passwords
-jsgoyette:contacts
-pfafman:font-awesome-4
+jsgoyette:modules
 app

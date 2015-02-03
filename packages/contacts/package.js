@@ -16,11 +16,10 @@ Package.onUse(function (api) {
   api.use('aldeed:collection2', both);
   api.use('aldeed:simple-schema', both);
 
-  api.use('jsgoyette:mediator', both);
-  api.use('jsgoyette:aes', 'client');
-
   api.use('templating', 'client');
-  api.use('layouts', both);
+  api.use('jsgoyette:mediator', both);
+  api.use('jsgoyette:layouts', both);
+  api.use('jsgoyette:aes', 'client');
 
   api.addFiles('definitions.js', both);
   api.addFiles('collections.js', both);

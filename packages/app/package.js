@@ -13,13 +13,13 @@ Package.onUse(function (api) {
   api.use('templating', 'client');
   api.use('jsgoyette:mediator', both);
   api.use('jsgoyette:spin', 'client');
-  api.use('layouts', 'client');
+  api.use('jsgoyette:modules');
+  api.use('jsgoyette:layouts');
 
   api.addFiles('layouts/default.html', 'client');
-  api.addFiles('layouts/default.js', 'client');
-
   api.addFiles('layouts/footer.html', 'client');
   api.addFiles('layouts/nav.html', 'client');
+  api.addFiles('layouts/nav.js', 'client');
 
   api.addFiles('routes.js', both);
 });

@@ -6,15 +6,14 @@ Package.describe({
 
 Package.onUse(function (api) {
 
-  var both = ['client', 'server'];
-
-  api.use('underscore', both);
-  api.use('iron:router', both);
+  api.use('underscore');
+  api.use('iron:router');
   api.use('templating', 'client');
-  api.use('jsgoyette:mediator', both);
+  api.use('jsgoyette:mediator');
+  api.use('jsgoyette:layouts');
 
-  api.addFiles('routes.js', both);
-  api.addFiles('collections.js', both);
+  api.addFiles('routes.js');
+  api.addFiles('collections.js');
   api.addFiles('publications.js', 'server');
 
   api.addFiles('views/note.html', 'client');

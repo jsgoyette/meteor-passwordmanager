@@ -1,22 +1,20 @@
 Package.describe({
   summary: 'layouts package',
   version: '1.0.0',
-  name: 'layouts',
+  name: 'jsgoyette:layouts',
 });
 
 Package.onUse(function (api) {
 
-  var both = ['client', 'server'];
-
-  api.use('tracker', both);
-  api.use('underscore', both);
+  api.use('tracker');
+  api.use('underscore');
   api.use('templating', 'client');
 
-  api.use('aldeed:autoform', both);
-  api.use('aldeed:collection2', both);
-  api.use('aldeed:simple-schema', both);
+  api.use('aldeed:autoform');
+  api.use('aldeed:collection2');
+  api.use('aldeed:simple-schema');
 
-  api.use('jsgoyette:mediator', both);
+  api.use('jsgoyette:mediator');
   api.use('jsgoyette:spin', 'client');
 
   api.addFiles('layouts/404.html', 'client');
