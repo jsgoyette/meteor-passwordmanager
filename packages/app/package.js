@@ -13,7 +13,6 @@ Package.onUse(function (api) {
   api.use('templating', 'client');
   api.use('jsgoyette:mediator', both);
   api.use('jsgoyette:spin', 'client');
-  api.use('jsgoyette:modules');
   api.use('jsgoyette:layouts');
 
   api.addFiles('layouts/default.html', 'client');
