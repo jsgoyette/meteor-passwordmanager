@@ -1,0 +1,31 @@
+<template name="nav">
+
+<ul id="user-dropdown" class="dropdown-content">
+  <li><a href="/profile">profile</a></li>
+  <li class="divider"></li>
+  <li><a href="/logout">logout</a></li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper blue-grey darken-2">
+    <div class="col s12">
+      <a class="brand-logo">ind.li</a>
+      <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="side-nav" id="mobile-nav">
+      {{#if currentUser}}
+        <li><a href="/passwords">passwords</a></li>
+        <li><a href="/notes">notas</a></li>
+        {{#each modules}}
+          <li class=""><a href="/{{path}}">{{collection}}</a></li>
+        {{/each}}
+        <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><i class="mdi-action-account-box left"></i></a></li>
+      {{else}}
+        <li><a href="/login">login</a></li>
+        <li><a href="/register">register</a></li>
+      {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</template>
