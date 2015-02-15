@@ -1,6 +1,6 @@
 PasswordController = function() {
 
-  var self = this;
+  var self = {};
 
   self._deps = {};
   self._deps['encrypted'] = new Tracker.Dependency;

@@ -6,7 +6,10 @@ Template.passwordlist.helpers({
       collection: Passwords,
       schema: CollectionSchema,
       fields: ListLayout.fields,
-      options: ListLayout.defaultOptions
+      controller: Layouts.Controllers.list({
+        key: 'passwords',
+        options: ListLayout.defaultOptions
+      })
     };
   },
 
