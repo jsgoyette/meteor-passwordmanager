@@ -16,6 +16,7 @@ Package.onUse(function (api) {
   api.use('jsgoyette:mediator', both);
 
   api.use('templating', 'client');
+  api.use('reactive-var', 'client');
   api.use('jsgoyette:aes', 'client');
 
   api.addFiles('definitions.js', both);

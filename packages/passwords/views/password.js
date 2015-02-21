@@ -1,62 +1,15 @@
-PasswordController = function() {
+var isEncrypted = ReactiveVar(true);
 
-  var self = {};
-
-  self._deps = {};
-  self._deps['encrypted'] = new Tracker.Dependency;
-
-  var encrypted = true;
-
-  self.getEncrypted = function() {
-    self._deps['encrypted'].depend();
-    return encrypted;
-  };
-
-  self.toggleEncrypted = function() {
-    encrypted = !encrypted;
-    self._deps['encrypted'].changed();
-  };
-
-  return self;
+isEncrypted.toggle = function() {
+  var encrypted = !this.get();
+  this.set(encrypted);
 };
-
-/**
- * encrypt event:
- * toggle field values and trigger UI changes
- */
-var encrypt = function (e, template) {
-
-  e.preventDefault();
-
-  var key = $('#key').val();
-  if (!key) return;
-
-  var fieldNames = ['url', 'username', 'password', 'notes'];
-  var func = passwordController.getEncrypted() ? 'decrypt' : 'encrypt';
-
-  func = Aes.Ctr[func];
-
-  var toggleEncrypted = function(fieldName) {
-    var field = $('[name="'+fieldName+'"]').val();
-    field = field && func(field, key, 256);
-    $('[name="'+fieldName+'"]').val(field);
-  };
-
-  // toggle encrypted each of the field values
-  _.each(fieldNames, function(fieldName) {
-    toggleEncrypted(fieldName);
-  });
-
-  // toggle encrypted for UI
-  passwordController.toggleEncrypted();
-}
-
 
 Template.password.created = function() {
-  passwordController = PasswordController();
+  isEncrypted.set(true);
 };
 
-Template.password.rendered = function () {
+Template.password.rendered = function() {
   $(document).scrollTop(0);
   $('#key').focus();
 };
@@ -66,15 +19,13 @@ Template.password.helpers({
     return this._id ? 'update' : 'insert';
   },
   isEncrypted: function() {
-    return passwordController.getEncrypted();
+    return isEncrypted.get();
   },
   encryptButtonLabel: function() {
-    var e = passwordController.getEncrypted();
-    return e ? 'Decrypt' : 'Encrypt';
+    return isEncrypted.get() ? 'Decrypt' : 'Encrypt';
   },
   saveButtonAttributes: function() {
-    var e = passwordController.getEncrypted();
-    if (e) {
+    if (isEncrypted.get()) {
       return {
         class: 'btn btn-success',
       }
@@ -86,16 +37,48 @@ Template.password.helpers({
   }
 });
 
+/**
+ * encrypt event:
+ * toggle field values and trigger UI changes
+ */
+var encrypt = function(e, template) {
+
+  e.preventDefault();
+
+  var key = $('#key').val();
+  if (!key) return;
+
+  var fieldNames = ['url', 'username', 'password', 'notes'];
+  var func = isEncrypted.get() ? 'decrypt' : 'encrypt';
+
+  func = Aes.Ctr[func];
+
+  var translateFieldValue = function(fieldName) {
+    var field = $('[name="'+fieldName+'"]').val();
+    field = field && func(field, key, 256);
+    $('[name="'+fieldName+'"]').val(field);
+  };
+
+  // toggle encrypted each of the field values
+  _.each(fieldNames, function(fieldName) {
+    translateFieldValue(fieldName);
+  });
+
+  // toggle encrypted for UI
+  isEncrypted.toggle();
+}
+
+
 Template.password.events({
 
   'click #encrypt': encrypt,
   'submit #encryptform': encrypt,
 
-  'click #confirmDelete': function (e, template) {
+  'click #confirmDelete': function(e, template) {
     if (confirm('Do you really want to delete this password?')) {
       var find = { _id: this._id };
       var update = { $set: { deleted: true } };
-      Passwords.update(find, update, function (err, doc) {
+      Passwords.update(find, update, function(err, doc) {
         Router.go('passwordlist');
       });
     }
@@ -134,7 +117,7 @@ Template.password.events({
 /**
  * AutoForm save notifications
  */
-var notifyError = function (operation, error, template) {
+var notifyError = function(operation, error, template) {
   Mediator.publish('notification', {
     text: error,
     type: 'error',
@@ -142,7 +125,7 @@ var notifyError = function (operation, error, template) {
   });
 };
 
-var notifySuccess = function (operation, result, template) {
+var notifySuccess = function(operation, result, template) {
 
   // notifications
   if (operation == 'update') {
