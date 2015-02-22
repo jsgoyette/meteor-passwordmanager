@@ -6,22 +6,20 @@ Package.describe({
 
 Package.onUse(function (api) {
 
-  var both = ['client', 'server'];
-
-  api.use('underscore', both);
-  api.use('iron:router', both);
-  api.use('aldeed:autoform', both);
-  api.use('aldeed:collection2', both);
-  api.use('aldeed:simple-schema', both);
-  api.use('jsgoyette:mediator', both);
+  api.use('underscore');
+  api.use('iron:router');
+  api.use('aldeed:autoform');
+  api.use('aldeed:collection2');
+  api.use('aldeed:simple-schema');
+  api.use('jsgoyette:mediator');
 
   api.use('templating', 'client');
   api.use('reactive-var', 'client');
   api.use('jsgoyette:aes', 'client');
 
-  api.addFiles('definitions.js', both);
-  api.addFiles('collections.js', both);
-  api.addFiles('routes.js', both);
+  api.addFiles('definitions.js');
+  api.addFiles('collections.js');
+  api.addFiles('routes.js');
   api.addFiles('publications.js', 'server');
 
   api.addFiles('views/password.html', 'client');
@@ -29,5 +27,5 @@ Package.onUse(function (api) {
   api.addFiles('views/passwordlist.html', 'client');
   api.addFiles('views/passwordlist.js', 'client');
 
-  api.export('Passwords', 'client');
+  api.export('Passwords');
 });
