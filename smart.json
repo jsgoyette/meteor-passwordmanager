@@ -34,6 +34,11 @@
       "_path": "/Volumes/Data/Project/_meteor/_packages/spin",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-spin.git",
       "branch": "master"
+    },
+    "secure-messages": {
+      "_path": "/Volumes/Data/Project/_meteor/_packages/secure-messages",
+      "git": "ssh://git@bitbucket.org/jsgoyette/secure-messages.git",
+      "branch": "master"
     }
   }
 }
