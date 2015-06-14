@@ -1,10 +1,16 @@
 Template.passwordlist.helpers({
 
   listData: function() {
+
+    var labels = _.object(
+      _.keys(CollectionSchema),
+      _.pluck(CollectionSchema, 'label')
+    );
+
     return {
       key: 'passwords',
       collection: Passwords,
-      schema: CollectionSchema,
+      labels: labels,
       fields: ListLayout.fields,
       controller: Layouts.Controllers.list({
         key: 'passwords',
