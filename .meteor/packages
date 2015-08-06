@@ -19,7 +19,6 @@ jsgoyette:layouts
 jsgoyette:auth-simple
 jsgoyette:mediator
 jsgoyette:mediator-notifications
-jsgoyette:notes
 jsgoyette:passwords
 jsgoyette:secure-messages
 app
