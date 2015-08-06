@@ -117,7 +117,7 @@ Template.password.events({
 /**
  * AutoForm save notifications
  */
-var notifyError = function(operation, error, template) {
+var notifyError = function(formType, error) {
   Mediator.publish('notification', {
     text: error,
     type: 'error',
@@ -125,12 +125,12 @@ var notifyError = function(operation, error, template) {
   });
 };
 
-var notifySuccess = function(operation, result, template) {
+var notifySuccess = function(formType, result) {
 
   // notifications
-  if (operation == 'update') {
+  if (formType == 'update') {
 
-    var doc = template.data.doc;
+    var doc = this.template.data.doc;
 
     if (doc && doc.deleted) {
       Mediator.publish('notification', {
@@ -147,7 +147,7 @@ var notifySuccess = function(operation, result, template) {
       });
     }
   }
-  else if (operation == 'insert') {
+  else if (formType == 'insert') {
 
     Mediator.publish('notification', {
       text: 'Password was successfully created.',
