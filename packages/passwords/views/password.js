@@ -99,9 +99,9 @@ Template.password.events({
       return pass;
     }
 
-    var message = genpass(16) + "\n" + genpass(16)
-         + "\n" + genpass(16) + "\n" + genpass(16)
-         + "\n" + genpass(16) + "\n" + genpass(16);
+    var message = genpass(20) + "\n" + genpass(20)
+         + "\n" + genpass(20) + "\n" + genpass(20)
+         + "\n" + genpass(20) + "\n" + genpass(20);
 
     Mediator.publish('notification', {
       text: message,
