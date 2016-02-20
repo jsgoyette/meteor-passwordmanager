@@ -1,42 +1,47 @@
 {
   "packages": {
     "aes": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/aes",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/aes",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-aes.git",
       "branch": "master"
     },
     "auth-simple": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/auth-simple",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/auth-simple",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-auth-simple.git",
       "branch": "master"
     },
     "layouts": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/layouts",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/layouts",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-layouts.git",
       "branch": "master"
     },
     "mediator": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/mediator",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/mediator",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-mediator.git",
       "branch": "master"
     },
     "mediator-notifications": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/mediator-notifications",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/mediator-notifications",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-mediator-notifications.git",
       "branch": "master"
     },
+    "mnemonic": {
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/mnemonic",
+      "git": "https://github.com/jsgoyette/meteor-mnemonic.git",
+      "branch": "master"
+    },
     "pnotify": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/pnotify",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/pnotify",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-pnotify.git",
       "branch": "master"
     },
     "spin": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/spin",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/spin",
       "git": "ssh://git@bitbucket.org/jsgoyette/meteor-spin.git",
       "branch": "master"
     },
     "secure-messages": {
-      "_path": "/Users/jsgoyette/Data/Projects/_meteor/_packages/secure-messages",
+      "_path": "/Users/jsgoyette/Data/Projects/_meteor/packages/secure-messages",
       "git": "ssh://git@bitbucket.org/jsgoyette/secure-messages.git",
       "branch": "master"
     }
