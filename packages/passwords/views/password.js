@@ -51,6 +51,14 @@ var encrypt = function(e, template) {
   var fieldNames = ['url', 'username', 'password', 'notes'];
   var func = isEncrypted.get() ? 'decrypt' : 'encrypt';
 
+  if (template.data.hashed || func == 'encrypt') {
+    var key = SHA256(key);
+  }
+
+  if (func == 'encrypt') {
+    $('[name="hashed"]').val(true);
+  }
+
   func = Aes.Ctr[func];
 
   var translateFieldValue = function(fieldName) {

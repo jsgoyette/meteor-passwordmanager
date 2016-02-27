@@ -24,6 +24,11 @@ CollectionSchema = {
     label: 'Notes',
     optional: true
   },
+  hashed: {
+    type: Boolean,
+    defaultValue: false,
+    optional: true
+  },
   deleted: {
     type: Boolean,
     defaultValue: false,

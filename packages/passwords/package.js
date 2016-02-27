@@ -15,6 +15,7 @@ Package.onUse(function (api) {
 
   api.use('templating', 'client');
   api.use('reactive-var', 'client');
+  api.use('sha', 'client');
   api.use('jsgoyette:aes', 'client');
 
   api.addFiles('definitions.js');
