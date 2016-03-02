@@ -51,7 +51,7 @@ var encrypt = function(e, template) {
   var fieldNames = ['url', 'username', 'password', 'notes'];
   var func = isEncrypted.get() ? 'decrypt' : 'encrypt';
 
-  if (template.data.hashed || func == 'encrypt') {
+  if ($('[name="hashed"]').val() || func == 'encrypt') {
     var key = SHA256(key);
   }
 
