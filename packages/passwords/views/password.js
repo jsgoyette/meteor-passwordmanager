@@ -5,18 +5,30 @@ isEncrypted.toggle = function() {
   this.set(encrypted);
 };
 
-Template.password.created = function() {
-  isEncrypted.set(true);
-};
+Template.password.onCreated(function() {
 
-Template.password.rendered = function() {
+  isEncrypted.set(true);
+
+  var template = Template.instance();
+
+  template.autorun(function() {
+    template.data.id = FlowRouter.getParam('id');
+    template.subscribe('passwords', { _id: template.data.id });
+  });
+});
+
+Template.password.onRendered(function() {
   $(document).scrollTop(0);
   $('#key').focus();
-};
+});
 
 Template.password.helpers({
+  password: function() {
+    var id = FlowRouter.getParam('id');
+    return Passwords.findOne({ _id: id }) || {};
+  },
   formType: function() {
-    return this._id ? 'update' : 'insert';
+    return this.id && this.id != 'new' ? 'update' : 'insert';
   },
   isEncrypted: function() {
     return isEncrypted.get();
@@ -74,8 +86,7 @@ var encrypt = function(e, template) {
 
   // toggle encrypted for UI
   isEncrypted.toggle();
-}
-
+};
 
 Template.password.events({
 
@@ -84,10 +95,10 @@ Template.password.events({
 
   'click #confirmDelete': function(e, template) {
     if (confirm('Do you really want to delete this password?')) {
-      var find = { _id: this._id };
+      var query = { _id: this.id };
       var update = { $set: { deleted: true } };
-      Passwords.update(find, update, function(err, doc) {
-        Router.go('passwordlist');
+      Passwords.update(query, update, function(err, doc) {
+        FlowRouter.go('passwordlist');
       });
     }
   },
@@ -163,7 +174,7 @@ var notifySuccess = function(formType, result) {
       icon: 'glyphicon glyphicon-trash'
     });
 
-    Router.go('password', {id: result});
+    FlowRouter.go('password', { id: result });
   }
 };
 

@@ -1,6 +1,6 @@
-Template.nav.created = function() {
+Template.nav.onCreated(function() {
   // Meteor.subscribe('moduledefs');
-}
+});
 
 Template.nav.helpers({
   'modules': function() {

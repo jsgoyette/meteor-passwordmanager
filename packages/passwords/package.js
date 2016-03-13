@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'password manager',
-  version: '1.0.0',
+  version: '1.1.0',
   name: 'jsgoyette:passwords',
 });
 
@@ -8,7 +8,8 @@ Package.onUse(function (api) {
 
   api.use([
     'underscore',
-    'iron:router',
+    'kadira:flow-router',
+    'kadira:blaze-layout',
     'aldeed:autoform',
     'aldeed:collection2',
     'aldeed:simple-schema',

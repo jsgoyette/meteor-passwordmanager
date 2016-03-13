@@ -1,14 +1,14 @@
-Router.configure({
-  layoutTemplate: 'layout',
-  loadingTemplate: 'loading'
+FlowRouter.route('/', {
+
+  name: 'home',
+
+  action: function(params, queryParams) {
+    FlowRouter.go('/create');
+  }
 });
 
-Router.route('/', function() {
-  this.redirect('secure-create');
-}, {
-  name: 'home'
-});
-
-Router.openRoutes.push('secure-create');
-Router.openRoutes.push('secure-retrieve');
-Router.openRoutes.push('home');
+FlowRouter.notFound = {
+  action: function() {
+    BlazeLayout.render('layout', { content: '' });
+  }
+};

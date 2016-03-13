@@ -1,24 +1,23 @@
-var routes = {
+FlowRouter.route('/passwords', {
 
-  'passwordlist': {
-    path: '/passwords',
+  name: 'passwordlist',
+
+  action: function() {
+    BlazeLayout.render('layout', { content: 'passwordlist', protect: true });
   },
 
-  'password': {
-    path: '/passwords/:id',
-    data: function() {
-      return Passwords.findOne(this.params.id);
-    },
-    waitOn: function () {
-      return [
-        Meteor.subscribe('passwords', {_id: this.params.id}),
-      ];
-    }
-  }
-};
+});
 
-Router.map(function() {
-  _.each(routes, function(opts, name) {
-    this.route(name, opts);
-  }, this);
+FlowRouter.route('/passwords/:id', {
+
+  name: 'password',
+
+  action: function(params) {
+    BlazeLayout.render('layout', {
+      content: 'password',
+      protect: true,
+      id: params.id
+    });
+  },
+
 });

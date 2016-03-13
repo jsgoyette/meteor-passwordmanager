@@ -19,7 +19,13 @@
     <div class="container">
       <div class="row">
 
-    {{> yield}}
+    {{#if currentUser}}
+      {{> Template.dynamic template=content}}
+    {{else}}{{#if protect}}
+      {{> login}}
+    {{else}}
+      {{> Template.dynamic template=content}}
+    {{/if}}{{/if}}
 
       </div>
     </div>
