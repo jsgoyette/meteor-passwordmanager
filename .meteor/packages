@@ -8,7 +8,6 @@ accounts-base
 accounts-password
 mrt:moment
 email
-iron:router
 less
 nemo64:bootstrap
 aldeed:collection2
