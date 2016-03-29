@@ -21,5 +21,6 @@ jsgoyette:mediator-notifications
 jsgoyette:passwords
 jsgoyette:secure-messages
 app
-standard-minifiers
 mnemonic
+standard-minifier-css
+standard-minifier-js
