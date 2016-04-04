@@ -19,13 +19,15 @@
     <div class="container">
       <div class="row">
 
-    {{#if currentUser}}
+    {{#if isLoggingIn}}
+      {{>loading}}
+    {{else}}{{#if currentUser}}
       {{> Template.dynamic template=content}}
     {{else}}{{#if protect}}
       {{> login}}
     {{else}}
       {{> Template.dynamic template=content}}
-    {{/if}}{{/if}}
+    {{/if}}{{/if}}{{/if}}
 
       </div>
     </div>

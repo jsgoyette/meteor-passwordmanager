@@ -6,19 +6,26 @@ Package.describe({
 
 Package.onUse(function (api) {
 
-  api.use('underscore');
-  api.use('kadira:flow-router');
-  api.use('kadira:blaze-layout');
-  api.use('jsgoyette:mediator');
-  api.use('jsgoyette:layouts');
+  api.use([
+    'underscore',
+    'jsgoyette:mediator',
+    'jsgoyette:layouts',
+  ]);
 
-  api.use('templating', 'client');
-  api.use('jsgoyette:spin', 'client');
+  api.use([
+    'kadira:flow-router',
+    'kadira:blaze-layout',
+    'templating',
+    'jsgoyette:spin',
+  ], 'client');
 
-  api.addFiles('layouts/default.html', 'client');
-  api.addFiles('layouts/footer.html', 'client');
-  api.addFiles('layouts/nav.html', 'client');
-  api.addFiles('layouts/nav.js', 'client');
+  api.addFiles([
+    'layouts/default.html',
+    'layouts/default.js',
+    'layouts/footer.html',
+    'layouts/nav.html',
+    'layouts/nav.js',
+    'routes.js',
+  ], 'client')
 
-  api.addFiles('routes.js');
 });

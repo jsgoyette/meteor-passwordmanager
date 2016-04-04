@@ -8,8 +8,6 @@ Package.onUse(function (api) {
 
   api.use([
     'underscore',
-    'kadira:flow-router',
-    'kadira:blaze-layout',
     'aldeed:autoform',
     'aldeed:collection2',
     'aldeed:simple-schema',
@@ -17,21 +15,23 @@ Package.onUse(function (api) {
   ]);
 
   api.use([
+    'sha',
     'templating',
     'reactive-var',
+    'kadira:flow-router',
+    'kadira:blaze-layout',
     'jsgoyette:aes',
-    'sha',
   ], 'client');
 
   api.addFiles([
     'definitions.js',
     'collections.js',
-    'routes.js',
   ]);
 
   api.addFiles('publications.js', 'server');
 
   api.addFiles([
+    'routes.js',
     'views/password.html',
     'views/password.js',
     'views/passwordlist.html',
