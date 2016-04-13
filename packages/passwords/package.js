@@ -12,6 +12,7 @@ Package.onUse(function (api) {
     'aldeed:collection2',
     'aldeed:simple-schema',
     'jsgoyette:mediator',
+    'ecmascript',
   ]);
 
   api.use([

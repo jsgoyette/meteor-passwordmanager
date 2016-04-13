@@ -10,6 +10,7 @@ Package.onUse(function (api) {
     'underscore',
     'jsgoyette:mediator',
     'jsgoyette:layouts',
+    'ecmascript'
   ]);
 
   api.use([
