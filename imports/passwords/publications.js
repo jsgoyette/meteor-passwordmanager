@@ -1,3 +1,6 @@
+import { Meteor } from 'meteor/meteor';
+import { Passwords } from './collections.js';
+
 var makeQuery = function(query, userid) {
   query = query || {};
   return {

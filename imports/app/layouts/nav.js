@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template.nav.onCreated(function() {
   // Meteor.subscribe('moduledefs');
 });

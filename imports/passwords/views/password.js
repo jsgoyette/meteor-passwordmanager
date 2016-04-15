@@ -1,3 +1,12 @@
+import { ReactiveVar } from 'meteor/reactive-var';
+import { Template } from 'meteor/templating';
+import { AutoForm } from 'meteor/aldeed:autoform';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Mediator } from 'meteor/jsgoyette:mediator';
+import { Aes } from 'meteor/jsgoyette:aes';
+import { SHA256 } from 'meteor/sha';
+import { Passwords } from '../collections.js';
+
 var isEncrypted = ReactiveVar(true);
 
 isEncrypted.toggle = function() {
@@ -23,6 +32,9 @@ Template.password.onRendered(function() {
 });
 
 Template.password.helpers({
+  Passwords: function() {
+    return Passwords;
+  },
   password: function() {
     var id = FlowRouter.getParam('id');
     return Passwords.findOne({ _id: id }) || {};

@@ -1,4 +1,4 @@
-CollectionSchema = {
+export const PasswordsSchema = {
   nickname: {
     type: String,
     label: 'Nickname',
@@ -38,19 +38,4 @@ CollectionSchema = {
     type: String,
     autoValue: function() { return this.userId }
   },
-};
-
-ListLayout = {
-  fields: [ 'nickname' ],
-  defaultOptions: {
-    sort: { 'nickname': 1 }
-  }
-};
-
-RecordLayout: {
-  rows: [
-    {
-
-    }
-  ]
 };

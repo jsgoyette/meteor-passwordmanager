@@ -18,10 +18,12 @@ jsgoyette:layouts
 jsgoyette:auth-simple
 jsgoyette:mediator
 jsgoyette:mediator-notifications
-jsgoyette:passwords
 jsgoyette:secure-messages
-app
 mnemonic
 standard-minifier-css
 standard-minifier-js
 ecmascript
+kadira:flow-router
+kadira:blaze-layout
+jsgoyette:spin
+underscore
