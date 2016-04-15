@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Passwords } from './collections.js';
 
-var makeQuery = function(query, userid) {
+var makeQuery = (query, userid) => {
   query = query || {};
   return {
     $and: [
@@ -18,7 +18,7 @@ Meteor.publish('passwords', function(query, options) {
 });
 
 Meteor.methods({
-  'passwordsFilteredTotal': function (query) {
+  passwordsFilteredTotal(query) {
     query = makeQuery(query, this.userId);
     return Passwords.find(query).count();
   }

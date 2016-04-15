@@ -7,12 +7,12 @@ Passwords.attachSchema(new SimpleSchema(PasswordsSchema));
 
 Passwords.allow({
 
-  'update': function (userId, doc) {
+  update(userId, doc) {
     // return true to allow insert
     return userId == doc.userid;
   },
 
-  'insert': function (userId, doc) {
+  insert(userId, doc) {
     return true;
   }
 

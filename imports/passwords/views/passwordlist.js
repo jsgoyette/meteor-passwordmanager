@@ -6,17 +6,17 @@ import { PasswordsSchema } from '../schema.js';
 
 Template.passwordlist.helpers({
 
-  listData: function() {
+  listData() {
 
-    var labels = _.object(
+    const labels = _.object(
       _.keys(PasswordsSchema),
       _.pluck(PasswordsSchema, 'label')
     );
 
     return {
+      labels,
       key: 'passwords',
       collection: Passwords,
-      labels: labels,
       fields: ListLayout.fields,
       controller: Layouts.Controllers.list({
         key: 'passwords',

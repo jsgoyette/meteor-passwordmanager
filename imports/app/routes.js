@@ -5,13 +5,13 @@ FlowRouter.route('/', {
 
   name: 'home',
 
-  action: function(params, queryParams) {
+  action(params, queryParams) {
     FlowRouter.go('/create');
   }
 });
 
 FlowRouter.notFound = {
-  action: function() {
+  action() {
     BlazeLayout.render('layout', { content: '' });
   }
 };

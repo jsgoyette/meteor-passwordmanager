@@ -7,20 +7,20 @@ import { Aes } from 'meteor/jsgoyette:aes';
 import { SHA256 } from 'meteor/sha';
 import { Passwords } from '../collections.js';
 
-var isEncrypted = ReactiveVar(true);
+const isEncrypted = ReactiveVar(true);
 
 isEncrypted.toggle = function() {
-  var encrypted = !this.get();
-  this.set(encrypted);
+  const other = !this.get();
+  this.set(other);
 };
 
 Template.password.onCreated(function() {
 
   isEncrypted.set(true);
 
-  var template = Template.instance();
+  const template = Template.instance();
 
-  template.autorun(function() {
+  template.autorun(() => {
     template.data.id = FlowRouter.getParam('id');
     template.subscribe('passwords', { _id: template.data.id });
   });
@@ -32,23 +32,23 @@ Template.password.onRendered(function() {
 });
 
 Template.password.helpers({
-  Passwords: function() {
+  Passwords() {
     return Passwords;
   },
-  password: function() {
-    var id = FlowRouter.getParam('id');
+  password() {
+    const id = FlowRouter.getParam('id');
     return Passwords.findOne({ _id: id }) || {};
   },
-  formType: function() {
+  formType() {
     return this.id && this.id != 'new' ? 'update' : 'insert';
   },
-  isEncrypted: function() {
+  isEncrypted() {
     return isEncrypted.get();
   },
-  encryptButtonLabel: function() {
+  encryptButtonLabel() {
     return isEncrypted.get() ? 'Decrypt' : 'Encrypt';
   },
-  saveButtonAttributes: function() {
+  saveButtonAttributes() {
     if (isEncrypted.get()) {
       return {
         class: 'btn btn-success',
@@ -65,18 +65,18 @@ Template.password.helpers({
  * encrypt event:
  * toggle field values and trigger UI changes
  */
-var encrypt = function(e, template) {
+const encrypt = (e, template) => {
 
   e.preventDefault();
 
-  var key = $('#key').val();
+  let key = $('#key').val();
   if (!key) return;
 
-  var fieldNames = ['url', 'username', 'password', 'notes'];
-  var func = isEncrypted.get() ? 'decrypt' : 'encrypt';
+  let fieldNames = ['url', 'username', 'password', 'notes'];
+  let func = isEncrypted.get() ? 'decrypt' : 'encrypt';
 
   if ($('[name="hashed"]').val() || func == 'encrypt') {
-    var key = SHA256(key);
+    key = SHA256(key);
   }
 
   if (func == 'encrypt') {
@@ -85,10 +85,10 @@ var encrypt = function(e, template) {
 
   func = Aes.Ctr[func];
 
-  var translateFieldValue = function(fieldName) {
-    var field = $('[name="'+fieldName+'"]').val();
+  let translateFieldValue = (fieldName) => {
+    let field = $(`[name="${fieldName}"]`).val();
     field = field && func(field, key, 256);
-    $('[name="'+fieldName+'"]').val(field);
+    $(`[name="${fieldName}"]`).val(field);
   };
 
   // toggle encrypted each of the field values
@@ -105,32 +105,32 @@ Template.password.events({
   'click #encrypt': encrypt,
   'submit #encryptform': encrypt,
 
-  'click #confirmDelete': function(e, template) {
+  'click #confirmDelete'(e, template) {
     if (confirm('Do you really want to delete this password?')) {
-      var query = { _id: this.id };
-      var update = { $set: { deleted: true } };
-      Passwords.update(query, update, function(err, doc) {
+      let query = { _id: this.id };
+      let update = { $set: { deleted: true } };
+      Passwords.update(query, update, (err, doc) => {
         FlowRouter.go('passwordlist');
       });
     }
   },
 
-  'click #generate': function(e, template) {
+  'click #generate'(e, template) {
 
-    var genpass = function(len) {
+    const genpass = (len) => {
 
-      var pass = '';
+      let pass = '';
 
       for (i = len; i > 0; i--) {
-        var rand = Math.floor(Math.random() * 61 + 48);
+        let rand = Math.floor(Math.random() * 61 + 48);
         rand += rand > 57 ? (rand > 83 ? 13 : 7) : 0;
         pass += String.fromCharCode(rand);
       }
 
       return pass;
-    }
+    };
 
-    var message = genpass(20) + "\n" + genpass(20)
+    let message = genpass(20) + "\n" + genpass(20)
          + "\n" + genpass(20) + "\n" + genpass(20)
          + "\n" + genpass(20) + "\n" + genpass(20);
 

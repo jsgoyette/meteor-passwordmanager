@@ -5,7 +5,7 @@ export const ListLayout = {
   }
 };
 
-RecordLayout: {
+export const RecordLayout = {
   rows: [
     {
 

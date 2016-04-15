@@ -5,7 +5,7 @@ Template.nav.onCreated(function() {
 });
 
 Template.nav.helpers({
-  'modules': function() {
+  modules() {
     // return Modules.Defs.find();
   }
 });
