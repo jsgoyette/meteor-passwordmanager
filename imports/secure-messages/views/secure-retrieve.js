@@ -57,11 +57,14 @@ let secureMessageRetriever = null;
 
 Template.secureRetrieve.onCreated(function() {
 
-  const id = FlowRouter.getParam('_id');
-  const key = FlowRouter.current().context.hash;
+  this.autorun(function() {
+    const id = FlowRouter.getParam('_id');
+    const key = FlowRouter.current().context.hash;
 
-  if (!secureMessageRetriever)
-    secureMessageRetriever = SecureMessageRetriever({ id: id, key: key });
+    if (!secureMessageRetriever && id) {
+      secureMessageRetriever = SecureMessageRetriever({ id: id, key: key });
+    }
+  });
 });
 
 Template.secureRetrieve.helpers({
