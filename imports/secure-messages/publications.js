@@ -3,8 +3,8 @@ import { SecureMessages } from './collections.js';
 
 Meteor.methods({
 
-  retrieveSecureMessage: function(id) {
-    var message = SecureMessages.findOne({ _id: id });
+  retrieveSecureMessage(id) {
+    const message = SecureMessages.findOne({ _id: id });
     // delete it if it exists
     if (message) {
       SecureMessages.remove({ _id: id });
@@ -12,9 +12,9 @@ Meteor.methods({
     return message;
   },
 
-  createSecureMessage: function(text) {
+  createSecureMessage(text) {
     if (!text) return null;
-    var _id = SecureMessages.insert({
+    const _id = SecureMessages.insert({
       text: text,
       created: new Date().getTime()
     });

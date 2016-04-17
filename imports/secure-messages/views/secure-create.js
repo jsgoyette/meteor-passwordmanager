@@ -3,32 +3,30 @@ import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-SecureMessageBuilder = function() {
+export const SecureMessageBuilder = function() {
 
   // called without new
   if (! (this instanceof SecureMessageBuilder)) {
     return new SecureMessageBuilder();
   }
 
-  var self = this;
+  this._deps = {};
+  this._deps['message'] = new Tracker.Dependency;
 
-  self._deps = {};
-  self._deps['message'] = new Tracker.Dependency;
+  let _id = '';
+  let key = '';
+  let message = '';
+  let encryptedMessage = '';
 
-  var _id = '';
-  var key = '';
-  var message = '';
-  var encryptedMessage = '';
-
-  self.getMessageDetails = function() {
-    self._deps['message'].depend();
+  this.getMessageDetails = () => {
+    this._deps['message'].depend();
     return !_id ? null : {
       _id: _id,
       key: key,
     };
   };
 
-  self.setMessage = function(newMessage) {
+  this.setMessage = (newMessage) => {
 
     message = newMessage;
 
@@ -37,15 +35,15 @@ SecureMessageBuilder = function() {
       key = Random.secret(30);
       encryptedMessage = Aes.Ctr.encrypt(message, key, 256);
 
-      Meteor.call('createSecureMessage', encryptedMessage, function(err, res) {
+      Meteor.call('createSecureMessage', encryptedMessage, (err, res) => {
         _id = res;
-        self._deps['message'].changed();
+        this._deps['message'].changed();
       });
 
     } else {
 
       key = _id = encryptedMessage = '';
-      self._deps['message'].changed();
+      this._deps['message'].changed();
 
     }
   };
@@ -54,7 +52,7 @@ SecureMessageBuilder = function() {
 
 
 Template.secureCreate.onCreated(function() {
-  var template = Template.instance();
+  const template = Template.instance();
   template.data.secureMessageBuilder = SecureMessageBuilder();
 });
 

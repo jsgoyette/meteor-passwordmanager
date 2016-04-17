@@ -5,7 +5,7 @@ FlowRouter.route('/retrieve/:_id', {
 
   name: 'secure-retrieve',
 
-  action: function(params) {
+  action(params) {
     BlazeLayout.render('layout', {
       content: 'secureRetrieve',
     });
@@ -17,7 +17,7 @@ FlowRouter.route('/create', {
 
   name: 'secure-create',
 
-  action: function() {
+  action() {
     BlazeLayout.render('layout', {
       content: 'secureCreate',
     });

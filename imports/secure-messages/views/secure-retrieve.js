@@ -3,64 +3,62 @@ import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-SecureMessageRetriever = function(opts) {
+export const SecureMessageRetriever = function(opts) {
 
   // called without new
   if (! (this instanceof SecureMessageRetriever)) {
     return new SecureMessageRetriever(opts);
   }
 
-  var self = this;
+  this._deps = {};
+  this._deps['loading'] = new Tracker.Dependency;
+  this._deps['message'] = new Tracker.Dependency;
 
-  self._deps = {};
-  self._deps['loading'] = new Tracker.Dependency;
-  self._deps['message'] = new Tracker.Dependency;
+  let id = opts.id || '';
+  let key = opts.key || '';
 
-  var id = opts.id || '';
-  var key = opts.key || '';
+  let message = '';
+  let decryptedMessage = '';
 
-  var message = '';
-  var decryptedMessage = '';
+  let loading = true;
 
-  var loading = true;
-
-  var decryptMessage = () => {
+  const decryptMessage = () => {
     decryptedMessage = message ? Aes.Ctr.decrypt(message, key, 256) : '';
   };
 
-  Meteor.call('retrieveSecureMessage', id, function(err, res) {
+  Meteor.call('retrieveSecureMessage', id, (err, res) => {
     loading = false;
-    self._deps['loading'].changed();
+    this._deps['loading'].changed();
     if (res) {
       message = res.text;
       decryptMessage();
     }
-    self._deps['message'].changed();
+    this._deps['message'].changed();
   });
 
-  self.getLoading = function() {
-    self._deps['loading'].depend();
+  this.getLoading = () => {
+    this._deps['loading'].depend();
     return loading;
   };
 
-  self.getMessage = function() {
-    self._deps['message'].depend();
+  this.getMessage = () => {
+    this._deps['message'].depend();
     return message;
   };
 
-  self.getDecryptedMessage = function() {
-    self._deps['message'].depend();
+  this.getDecryptedMessage = () => {
+    this._deps['message'].depend();
     return decryptedMessage;
   };
 
 };
 
-let secureMessageRetriever = '';
+let secureMessageRetriever = null;
 
 Template.secureRetrieve.onCreated(function() {
 
-  var id = FlowRouter.getParam('_id');
-  var key = FlowRouter.current().context.hash;
+  const id = FlowRouter.getParam('_id');
+  const key = FlowRouter.current().context.hash;
 
   if (!secureMessageRetriever)
     secureMessageRetriever = SecureMessageRetriever({ id: id, key: key });
