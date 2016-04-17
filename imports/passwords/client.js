@@ -1,6 +1,3 @@
-import './schema.js';
-import './collections.js';
-
 import './views/password.html';
 import './views/passwordlist.html';
 

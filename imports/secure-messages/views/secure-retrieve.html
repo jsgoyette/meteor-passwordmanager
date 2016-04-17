@@ -1,0 +1,32 @@
+<template name="secureRetrieve">
+
+<div class="col-md-8 col-md-offset-2">
+
+
+  {{#if load}}
+
+  <div class="full-page-spinner">
+    {{> loading }}
+  </div>
+
+  {{else}} {{#if decryptedMessage}}
+
+  <h2>View your secure message</h2>
+  <hr>
+  <div id="result">
+    <label>Decrypted message:</label>
+    <pre contentEditable="true">{{decryptedMessage}}</pre>
+  </div>
+
+  {{else}}
+
+  <h2>Message could not be retrieved</h2>
+  <hr>
+  <p><b>What happened to it?</b></p>
+  <p>Either the message didn't exist in the first place or somebody beat you to it and has already retrieved it.</p>
+
+  {{/if}}{{/if}}
+
+</div>
+
+</template>
