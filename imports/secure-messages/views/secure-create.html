@@ -42,7 +42,7 @@ Please note, the message is deleted once it's retrieved and cannot be viewed aga
   <ul>
     <li>By submitting your message in the above form, you are provided a URL that someone can use to retrieve the message, though only one time.</li>
     <li>Once your friend retrieves the encrypted message, it is deleted out of the database entirely. No metadata about the message is stored, such as timestamps or IP addresses.</li>
-    <li>Upon submitting the above form a passphrase is generated with more than 100 bits of entropy, and then the message is encrypted with AES-256.</li>
+    <li>Upon submitting the above form a passphrase (with more than 80 bits of entropy) is generated on the client, and then the message is encrypted with AES-256.</li>
     <li>Only the encrypted message is sent to the server. The passphrase is simply displayed within the generated text and is never sent over the wire.</li>
   </ul>
 
