@@ -11,10 +11,12 @@
 
   {{else}} {{#if decryptedMessage}}
 
-  <h2>View your secure message</h2>
+  <h2>Here's your secure message!</h2>
+  <p><b>Please note:</b> this message was deleted upon retrieval and cannot be retrieved again.</p>
+
   <hr>
+
   <div id="result">
-    <label>Decrypted message:</label>
     <pre contentEditable="true">{{decryptedMessage}}</pre>
   </div>
 
