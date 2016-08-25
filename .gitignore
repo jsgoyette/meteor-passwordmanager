@@ -4,6 +4,7 @@
 custom.bootstrap.less
 custom.bootstrap.mixins.import.less
 mup.js*
+node_modules
 private/*
 smart.lock
 versions.json
