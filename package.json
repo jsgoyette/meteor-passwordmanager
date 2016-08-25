@@ -1,0 +1,23 @@
+{
+  "name": "passwordmanager",
+  "version": "0.0.1",
+  "description": "password manager",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^0.8.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsgoyette/meteor-passwordmanager.git"
+  },
+  "author": "jsgoyette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsgoyette/meteor-passwordmanager/issues"
+  },
+  "homepage": "https://github.com/jsgoyette/meteor-passwordmanager#readme"
+}
