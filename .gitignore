@@ -3,8 +3,7 @@
 !.meteor/packages
 custom.bootstrap.less
 custom.bootstrap.mixins.import.less
-mup.json
+mup.js*
 private/*
 smart.lock
 versions.json
-
