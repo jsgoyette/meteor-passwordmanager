@@ -4,7 +4,9 @@
   "description": "password manager",
   "main": "index.js",
   "dependencies": {
-    "bcrypt": "^0.8.7"
+    "bcrypt": "^0.8.7",
+    "moment": "^2.14.1",
+    "spin.js": "^2.3.2"
   },
   "devDependencies": {},
   "scripts": {
