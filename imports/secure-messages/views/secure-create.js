@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
+import { Random } from 'meteor/random';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 export const SecureMessageBuilder = function() {
