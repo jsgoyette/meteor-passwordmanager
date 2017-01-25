@@ -1,3 +1,7 @@
+.navbar-brand>a {
+  display: inline !important;
+}
+
 .btn {
   margin-bottom: 20px;
 }
@@ -216,5 +220,3 @@ img {
     float:left;
   }
 }
-
-
