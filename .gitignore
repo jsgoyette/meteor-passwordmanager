@@ -1,6 +1,7 @@
 .DS_Store
 .meteor/*
 !.meteor/packages
+!.meteor/release
 custom.bootstrap.less
 custom.bootstrap.mixins.import.less
 mup.js*
